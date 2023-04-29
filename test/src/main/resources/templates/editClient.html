@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Patients</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.1/css/ ">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="col-md-6 offset-3" >
+        <form method="post" th:action="@{saveClient(page=${page},keyword=${keyword})}">
+            <div>
+                <label>ID :</label>
+                <label th:text="${client.id}"></label>
+                <input class="form-control" type="hidden" name="id" th:value="${client.id}">
+            </div>
+            <div>
+                <label for="nom">Nom : </label>
+                <input id="nom" class="form-control" type="text" name="nom" th:value="${client.nom}">
+                <span class="text-danger" th:errors="${client.nom}"></span>
+            </div>
+            <div>
+                <label>Email : </label>
+                <input class="form-control" type="text" name="email" th:value="${client.email}">
+                <span class="text-danger" th:errors="${client.email}"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

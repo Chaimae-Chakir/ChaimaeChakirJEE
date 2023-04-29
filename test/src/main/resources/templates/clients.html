@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Listes des clients</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mt-2">
+        <div class="card">
+            <div class="card-header">Liste des clients</div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <form method="get" th:action="@{/user/index}">
+                        <label>username</label>
+                        <input type="text" name="username" th:value="${username}" />
+                        <button type="submit" class="btn btn-primary">Chercher</button>
+                    </form>
+                    <tr th:each="client: ${listClients}">
+                        <td th:text="${client.id}"></td>
+                        <td th:text="${client.nom}"></td>
+                        <td th:text="${client.email}"></td>
+                        <td>
+                            <a class="btn btn-info" th:href="@{/user/abonnements/index}">
+                                Voir les abonnements
+                            </a>
+                        </td>
+                        <td th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                            <a onclick="return confirm('Etes vous sure?')" class="btn btn-danger" th:href="@{/admin/deleteClient(id=${client.id},username=${username},page=${currentPage})}">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                        <td th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                            <a class="btn btn-success" th:href="@{/admin/editClient(id=${client.id},username=${username},page=${currentPage})} ">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <ul class="nav nav-pills">
+                    <li th:each="page,status:${pages}">
+                        <a th:class="${status.index==currentPage?'btn btn-primary ms-1':'btn btn-outline-primary ms-1'}"
+                           th:text="${status.index}"
+                           th:href="@{/user/index(page=${status.index}, username=${username})}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

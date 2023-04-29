@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Abonnements</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.1/css/ ">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="p-3" >
+        <form method="post" th:action="@{saveAbonnement}">
+            <div class="mb-3 mt-3">
+                <label for="typeAbonnement" class="form-label">TypeAbonnement : </label><br>
+                <select id="typeAbonnement" multiple="multiple" size="3" name="choix_typeAbonnement" th:value="${abonnement.typeAbonnement}">
+                    <option value="GSM">GSM</option>
+                    <option value="INTERNET">Internet</option>
+                    <option value="TELEPHONE_FIXE"> TELEPHONE FIXE</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="dateAbonnement" class="form-label">DateAbonnement : </label>
+                <input type="date" class="form-control" id="dateAbonnement" placeholder="dateAbonnement"
+                       name="dateAbonnement" th:value="${abonnement.dateAbonnement}">
+            </div>
+            <div class="mb-3">
+                <label for="sold" class="form-label">Sold : </label>
+                <input type="number" class="form-control" id="sold" placeholder="sold"
+                       name="sold" th:value="${abonnement.sold}">
+            </div>
+            <div class="mb-3">
+                <label for="montantMensuel" class="form-label">MontantMensuel : </label>
+                <input type="number" class="form-control" id="montantMensuel" placeholder="montantMensuel"
+                       name="montantMensuel" th:value="${abonnement.montantMensuel}">
+            </div>
+            <div class="mb-3">
+                <label for="client" class="form-label">client : </label>
+                <input type="text" class="form-control" id="client" placeholder="client"
+                       name="client" th:value="${abonnement.client}">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

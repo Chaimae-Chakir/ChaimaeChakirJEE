@@ -1,5 +1,6 @@
 package ma.enset.bankaccountservice.mappers;
 
+import ma.enset.bankaccountservice.dto.BankAccountRequestDTO;
 import ma.enset.bankaccountservice.dto.BankAccountResponseDTO;
 import ma.enset.bankaccountservice.entities.BankAccount;
 import org.springframework.beans.BeanUtils;
@@ -12,9 +13,9 @@ public class AccountMapper {
         BeanUtils.copyProperties(bankAccount,bankAccountResponseDTO);
         return bankAccountResponseDTO;
     }
-    public BankAccount fromBankAccount(BankAccountResponseDTO bankAccountResponseDTO){
+    public BankAccount fromBankAccountRequestDTO(BankAccountRequestDTO requestDTO){
         BankAccount bankAccount=new BankAccount();
-        BeanUtils.copyProperties(bankAccountResponseDTO,bankAccount);
+        BeanUtils.copyProperties(requestDTO,bankAccount);
         return bankAccount;
     }
 }

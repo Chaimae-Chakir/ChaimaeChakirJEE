@@ -1,9 +1,5 @@
-package ma.enset.bankaccountservice.entities;
+package ma.enset.bankaccountservice.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,15 +7,12 @@ import lombok.NoArgsConstructor;
 import ma.enset.bankaccountservice.enums.AccountType;
 
 import java.util.Date;
-@Entity
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
-
-public class BankAccount {
-    @Id
+@Data @AllArgsConstructor @NoArgsConstructor
+@Builder
+public class BankAccountResponseDTO {
     private String id;
     private Date createdAT;
     private Double balance;
     private String currency;
-    @Enumerated(EnumType.STRING)
     private AccountType type;
 }

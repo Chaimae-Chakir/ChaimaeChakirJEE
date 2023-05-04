@@ -22,7 +22,9 @@ public class HospitalServiceImpl implements IHospitalService {
     private RendezVousRepository rendezVousRepository;
     private ConsultationRepository consultationRepository;
 
-    public HospitalServiceImpl(PatientRepository patientRepository, MedecinRepository medecinRepository, RendezVousRepository rendezVousRepository, ConsultationRepository consultationRepository) {
+    public HospitalServiceImpl(PatientRepository patientRepository, MedecinRepository medecinRepository,
+                               RendezVousRepository rendezVousRepository,
+                               ConsultationRepository consultationRepository) {
         this.patientRepository = patientRepository;
         this.medecinRepository = medecinRepository;
         this.rendezVousRepository = rendezVousRepository;

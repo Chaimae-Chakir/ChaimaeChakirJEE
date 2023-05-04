@@ -9,6 +9,9 @@ import ma.enset.bankaccountservice.repositories.BankAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.UUID;
+
 @Service
 @Transactional
 public class BankAccountServiceImpl implements BankAccountService {
@@ -18,7 +21,29 @@ public class BankAccountServiceImpl implements BankAccountService {
     private AccountMapper accountMapper;
     @Override
     public BankAccountResponseDTO addAccount(BankAccountRequestDTO bankAccountDTO) {
-        BankAccount bankAccount=accountMapper.fromBankAccountRequestDTO(bankAccountDTO);
+        //BankAccount bankAccount=accountMapper.fromBankAccountRequestDTO(bankAccountDTO);
+        BankAccount bankAccount=BankAccount.builder()
+                .id(UUID.randomUUID().toString())
+                .createdAT(new Date())
+                .balance(bankAccountDTO.getBalance())
+                .type(bankAccountDTO.getType())
+                .currency(bankAccountDTO.getCurrency())
+                .build();
+        BankAccount savedBankAccount= bankAccountRepository.save(bankAccount);
+        BankAccountResponseDTO bankAccountResponseDTO = accountMapper.fromBankAccount(savedBankAccount);
+        return bankAccountResponseDTO;
+    }
+
+    @Override
+    public BankAccountResponseDTO updateAccount(String id,BankAccountRequestDTO bankAccountDTO) {
+        //BankAccount bankAccount=accountMapper.fromBankAccountRequestDTO(bankAccountDTO);
+        BankAccount bankAccount=BankAccount.builder()
+                .id(id)
+                .createdAT(new Date())
+                .balance(bankAccountDTO.getBalance())
+                .type(bankAccountDTO.getType())
+                .currency(bankAccountDTO.getCurrency())
+                .build();
         BankAccount savedBankAccount= bankAccountRepository.save(bankAccount);
         BankAccountResponseDTO bankAccountResponseDTO = accountMapper.fromBankAccount(savedBankAccount);
         return bankAccountResponseDTO;

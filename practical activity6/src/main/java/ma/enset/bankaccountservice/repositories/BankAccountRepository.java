@@ -10,7 +10,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import java.util.List;
 
 @RepositoryRestResource
-
 public interface BankAccountRepository extends JpaRepository<BankAccount,String> {
    @RestResource(path="/ByType")
    List<BankAccount> findByType(@Param("t") AccountType accountType);

@@ -52,7 +52,9 @@ public class PatientController {
 
     @PostMapping("/admin/save")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public String save(Model model, @Valid Patient patient, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "")String keyword){
+    public String save(Model model, @Valid Patient patient, BindingResult bindingResult,
+                       @RequestParam(defaultValue = "0") int page,
+                       @RequestParam(defaultValue = "")String keyword){
         if(bindingResult.hasErrors()) return "formPatients";
         patientRepository.save(patient);
         return "redirect:/user/index?page="+page+"&keyword="+keyword;

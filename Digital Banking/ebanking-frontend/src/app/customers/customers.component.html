@@ -1,0 +1,56 @@
+<div class="container mt-2" xmlns="http://www.w3.org/1999/html">
+  <ng-container *ngIf="customers | async as listCustomers; else failureOrLoading">
+    <div class="card">
+      <div class="card-header">Customers</div>
+      <div card="card-body">
+        <div *ngIf="searchFormGroup" class="mt-2 mb-4 ms-2 me-2">
+          <!-- {{this.searchFormGroup.value | json}}-->
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchCustomers()">
+            <div class="input-group">
+              <label class="input-group-text">Keyword :</label>
+              <input type="text" formControlName="keyword" class="form-control">
+              <button class="btn btn-info">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of customers | async">
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.email}}</td>
+            <td>
+              <button (click)="handleDeleteCustomer(c)"  class="btn btn-danger">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </ng-container>
+  <ng-template #failureOrLoading>
+    <ng-container *ngIf="errorMessage; else Loading">
+      <div class="alert alert-danger">
+        {{errorMessage | json}}
+      </div>
+    </ng-container>
+    <ng-template #Loading>
+      <div class="alert alert-info">
+        Loading...
+      </div>
+    </ng-template>
+  </ng-template>
+
+</div>

@@ -4,18 +4,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Customer {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String name ;
     private String email;
+
     @OneToMany(mappedBy = "customer")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // pour ne pas afficher les comptes bancaires lors de l'affichage d'un client
-    private List<BankAccount> bankAccounts;
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<BankAccount> bankAccount = new java.util.ArrayList<>();
 }

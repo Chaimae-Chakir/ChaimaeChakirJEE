@@ -3,6 +3,8 @@ package org.sid.ebankingbackend.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.sid.ebankingbackend.enums.AccountStatus;
 
 import javax.persistence.*;
@@ -16,14 +18,19 @@ import java.util.List;
 @DiscriminatorColumn(name = "TYPE",  length = 4)
 @Data @NoArgsConstructor @AllArgsConstructor
 public abstract class BankAccount {
+
     @Id
     private String id;
     private double balance;
     private Date createdAt;
+
     @Enumerated(EnumType.STRING)
     private AccountStatus status;
+
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Customer customer;
+
     @OneToMany(mappedBy = "bankAccount",fetch = FetchType.LAZY)
-    private List<AccountOperation> accountOperations;
+    private List<AccountOperation> accountOperationList;
 }

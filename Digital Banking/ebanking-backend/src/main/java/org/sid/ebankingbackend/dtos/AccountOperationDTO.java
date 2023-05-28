@@ -9,10 +9,11 @@ import java.util.Date;
 
 @Data
 public class AccountOperationDTO {
-    private Long id;
+    private Long id ;
     private Date operationDate;
     private double amount;
-    private String description;
     private OperationType type;
+    private String description;
+    private String accountId;
 
 }

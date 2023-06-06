@@ -13,44 +13,45 @@ Il existe deux type d'architectures des applications :
 
 Avantages d'une architecture monolithique :
 
-Déploiement facile.
-Développement basé sur un seul ensemble de code.
-Performances optimisées.
-Tests simplifiés.
-Débogage facilité.
+        - Déploiement facile.
+        - Développement basé sur un seul ensemble de code.
+        - Performances optimisées.
+        - Tests simplifiés.
+        - Facilité de débogage.
+
 Inconvénients d'une architecture monolithique :
 
-- Centralisation de tous les besoins fonctionnels.
-- Utilisation d'une seule technologie.
-- Chaque modification nécessite des tests de régression pour vérifier l'impact sur les autres fonctionnalités, ainsi qu'un redéploiement de l'ensemble de l'application, rendant difficile son évolution au niveau fonctionnel.
-- Temps d'attente important pour les premières versions.
-- Processus de mise en production long.
-- Difficulté à effectuer des tests.
-- Performances limitées en termes de scalabilité. Si des problèmes de montée en charge surviennent, la solution de scalabilité horizontale peut être trop complexe.
-- Développement plus lent.
-- Manque d'évolutivité.
-- Fiabilité incertaine.
-- Obstacle à l'adoption de nouvelles technologies.
-- Manque de flexibilité.
-- Difficulté dans le déploiement.
+        - Centralisation de tous les besoins fonctionnels.
+        - Utilisation d'une seule technologie.
+        - Chaque modification nécessite des tests de régression pour vérifier l'impact sur les autres fonctionnalités, ainsi qu'un redéploiement de l'ensemble de l'application, rendant difficile son évolution au niveau fonctionnel.
+        - Temps d'attente important pour les premières versions.
+        - Processus de mise en production long.
+        - Difficulté à effectuer des tests.
+        - Performances limitées en termes de scalabilité. Si des problèmes de montée en charge surviennent, la solution de scalabilité horizontale peut être trop complexe.
+        - Développement plus lent.
+        - Manque d'évolutivité.
+        - Fiabilité incertaine.
+        - Obstacle à l'adoption de nouvelles technologies.
+        - Manque de flexibilité.
+        - Difficulté dans le déploiement.
 
     
 - ```Micro-Services```: Il s'agit d'une approche architecturale basée sur une série de services indépendants, déployables de manière autonome. Chaque service possède sa propre logique métier et sa propre base de données, avec un objectif spécifique. Les mises à jour, les tests, le déploiement et la mise à l'échelle sont effectués individuellement pour chaque service. Chaque microservice est responsable d'une fonctionnalité et s'exécute dans un processus séparé.
 
 Avantages des microservices :
 
-  -Agilité accrue.
-  -Évolutivité flexible.
-  -Déploiement continu.
-  -Administration et tests facilités.
-  -Déploiement indépendant.
-  -Flexibilité technologique.
-  -Fiabilité élevée.
-  -Satisfaction des équipes.
-  -Choix de technologies.
-  -Livraison continue.
-  -Facilité des tests et du déploiement.
-  -S'adapte bien aux processus de génie logiciel tels que le TDD (Test Driven Development) et les méthodes agiles.
+        - Agilité accrue.
+        - Évolutivité flexible.
+        - Déploiement continu.
+        - Administration et tests facilités.
+        - Déploiement indépendant.
+        - Flexibilité technologique.
+        - Fiabilité élevée.
+        - Satisfaction des équipes.
+        - Choix de technologies.
+        - Livraison continue.
+        - Facilité des tests et du déploiement.
+        - S'adapte bien aux processus de génie logiciel tels que le TDD (Test Driven Development) et les méthodes agiles.
 
        ``` java 
          // developpement classique 
@@ -101,13 +102,15 @@ Avantages des microservices :
           }
        ```
 
-   Inconvénients des microservices :
-    - Complexité accrue du développement.
-    - Augmentation des coûts d'infrastructure.
-    -Besoins organisationnels supplémentaires.
-    -Défis de débogage.
-    -Manque de standardisation.
-    -Manque de responsabilité clairement définie.
+  Inconvénients des microservices :
+
+        - Complexité accrue du développement.
+        - Augmentation des coûts d'infrastructure.
+        - Besoins organisationnels supplémentaires.
+        - Défis de débogage.
+        - Manque de standardisation.
+        - Manque de responsabilité clairement définie.
+
     
     Vers la fin du développement, il est nécessaire de mettre en place un Gateway qui joue le rôle de réception des requêtes et d'équilibrage de charge à l'aide d'un load balancer. De plus, nous avons également besoin d'un Discovery Service qui enregistre les services et permet de les identifier par leur nom, tout en fournissant leur adresse au gateway. Enfin, un Config Service est requis pour créer un référentiel contenant le fichier application.properties où seront regroupées toutes les propriétés communes entre les services.
 

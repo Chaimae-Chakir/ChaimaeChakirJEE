@@ -16,5 +16,5 @@
 ## Activité Pratique N°7 : Mise en oeuvre d'une architecture micro-services avec Spring cloud
    - [micro-service]()
 ## Projet Digital Banking 
-   - [Backend](https://github.com/Chaimae-Chakir/ChaimaeChakirJEE/tree/practical-activities/Digital%20Banking/ebanking-backend)
+   - [BackEnd](https://github.com/Chaimae-Chakir/ChaimaeChakirJEE/tree/practical-activities/Digital%20Banking/ebanking-backend)
    - [FrontEnd](https://github.com/Chaimae-Chakir/ChaimaeChakirJEE/tree/practical-activities/Digital%20Banking/ebanking-frontend)

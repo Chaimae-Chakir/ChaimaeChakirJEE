@@ -1,4 +1,4 @@
-# SokainaDaabalJEE
+
 ## Activité Pratique N°1 : Inversion de contrôle et Injection des dépendances 
   -  [Inversion de contrôle et Injection des dépendances ](https://github.com/Chaimae-Chakir/ChaimaeChakirJEE/tree/practical-activities/practical%20activity1)
 ## Activité Pratique N°2 : Bases des systèmes distribués - Programmation Résaux 

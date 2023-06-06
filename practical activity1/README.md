@@ -20,19 +20,20 @@ Tests simplifiés.
 Débogage facilité.
 Inconvénients d'une architecture monolithique :
 
-  -Centralisation de tous les besoins fonctionnels.
-  -Utilisation d'une seule technologie.
-  -Chaque modification nécessite des tests de régression pour vérifier l'impact sur les autres fonctionnalités, ainsi qu'un redéploiement de l'ensemble de l'application, rendant difficile son évolution au niveau fonctionnel.
-  -Temps d'attente important pour les premières versions.
-  -Processus de mise en production long.
-  -Difficulté à effectuer des tests.
-  -Performances limitées en termes de scalabilité. Si des problèmes de montée en charge surviennent, la solution de scalabilité horizontale peut être trop complexe.
-  -Développement plus lent.
-  -Manque d'évolutivité.
-  -Fiabilité incertaine.
-  -Obstacle à l'adoption de nouvelles technologies.
-  -Manque de flexibilité.
-  -Difficulté dans le déploiement.
+- Centralisation de tous les besoins fonctionnels.
+- Utilisation d'une seule technologie.
+- Chaque modification nécessite des tests de régression pour vérifier l'impact sur les autres fonctionnalités, ainsi qu'un redéploiement de l'ensemble de l'application, rendant difficile son évolution au niveau fonctionnel.
+- Temps d'attente important pour les premières versions.
+- Processus de mise en production long.
+- Difficulté à effectuer des tests.
+- Performances limitées en termes de scalabilité. Si des problèmes de montée en charge surviennent, la solution de scalabilité horizontale peut être trop complexe.
+- Développement plus lent.
+- Manque d'évolutivité.
+- Fiabilité incertaine.
+- Obstacle à l'adoption de nouvelles technologies.
+- Manque de flexibilité.
+- Difficulté dans le déploiement.
+
     
 - ```Micro-Services```: Il s'agit d'une approche architecturale basée sur une série de services indépendants, déployables de manière autonome. Chaque service possède sa propre logique métier et sa propre base de données, avec un objectif spécifique. Les mises à jour, les tests, le déploiement et la mise à l'échelle sont effectués individuellement pour chaque service. Chaque microservice est responsable d'une fonctionnalité et s'exécute dans un processus séparé.
 
